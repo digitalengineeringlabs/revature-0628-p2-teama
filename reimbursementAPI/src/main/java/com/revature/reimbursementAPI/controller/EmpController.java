@@ -1,0 +1,40 @@
+package com.revature.reimbursementAPI.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.revature.reimbursementAPI.model.Employee;
+
+import manager.EmployeeManager;
+
+
+@RestController
+@RequestMapping(path="/employees")
+public class EmpController {
+	
+	@Autowired
+	private EmployeeManager manager;
+
+	@GetMapping(produces="application/json")
+	public List<Employee> getAllEmployees(){
+		return manager.findAll();
+	}
+	
+	@GetMapping(path="/{id}", produces="application/json")
+	public Employee getEmployee(@PathVariable int id){
+		return manager.findById(id);
+	}
+	
+	@PostMapping(consumes="application/json", produces="application/json")
+	public Employee create(@RequestBody Employee e){
+		return manager.create(e);
+	}
+
+}
