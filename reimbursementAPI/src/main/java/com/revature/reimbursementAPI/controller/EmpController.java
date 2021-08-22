@@ -18,7 +18,7 @@ import com.revature.reimbursementAPI.manager.EmployeeManager;
 @RestController
 @RequestMapping(path="/employees")
 public class EmpController {
-	
+
 	@Autowired
 	private EmployeeManager manager;
 
@@ -26,12 +26,12 @@ public class EmpController {
 	public List<Employee> getAllEmployees(){
 		return manager.findAll();
 	}
-	
+
 	@GetMapping(path="/{id}", produces="application/json")
 	public Employee getEmployee(@PathVariable int id){
 		return manager.findById(id);
 	}
-	
+
 	@PostMapping(consumes="application/json", produces="application/json")
 	public Employee create(@RequestBody Employee e){
 		return manager.create(e);

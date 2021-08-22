@@ -1,9 +1,5 @@
 package com.revature.reimbursementAPI.model;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.*;
 
 //import org.springframework.security.core.GrantedAuthority;
@@ -11,13 +7,16 @@ import javax.persistence.*;
 //import org.springframework.security.core.userdetails.UserDetails;
 // 
 @Entity
-@Table(name = "employee")
+@Table(name="employee", schema="reimbursementschema")
 public class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator ="id.generator")
-    @SequenceGenerator(name="id_generator", sequenceName="employee_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
- 
+
+    @Column(name="first_name")
+	private String firstName;
+    @Column(name="last_name")
+	private String lastName;
     @Column
     private String username;
     @Column
@@ -28,7 +27,15 @@ public class Employee {
 	public Employee() {
 		super();
 	}
-	
+
+	public Employee(String firstName, String lastName, String username, String password, String role) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
+		this.password = password;
+		this.role = role;
+	}
+
 	public Employee(String username, String password) {
 		super();
 		this.username = username;

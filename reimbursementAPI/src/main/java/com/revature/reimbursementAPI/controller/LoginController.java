@@ -24,7 +24,7 @@ public class LoginController {
 
 	@Autowired
 	private LoginManager manager;
-	
+
 	@Autowired
 	private EmployeeManager er;
 
@@ -33,17 +33,17 @@ public class LoginController {
 		System.out.println();
 		return manager.findbyUserAndPass(username, password);
 	}
-	
+
 	@GetMapping(produces="application/json")
 	public List<Employee> getAllEmployees(){
 		return er.findAll();
 	}
-	
+
 	@PostMapping(consumes="application/json", produces="application/json")
 	public Employee create(@Valid @RequestBody Employee emp) {
 		return manager.create(emp);
 	}
-//	
+//
 //	@ResponseStatus(HttpStatus.BAD_REQUEST)
 //	@ExceptionHandler(MethodArgumentNotValidException.class)
 //	public Map<String, String> handleValidationExceptions(
@@ -56,8 +56,8 @@ public class LoginController {
 //	    });
 //	    return errors;
 //	}
-	 
- 
+
+
 //    @Bean(name = "pwdEncoder")
 //    public PasswordEncoder getPasswordEncoder() {
 //        DelegatingPasswordEncoder delPasswordEncoder = (DelegatingPasswordEncoder) PasswordEncoderFactories
@@ -66,7 +66,7 @@ public class LoginController {
 //        delPasswordEncoder.setDefaultPasswordEncoderForMatches(bcryptPasswordEncoder);
 //        return delPasswordEncoder;
 //    }
-//    
+//
 //	@Override
 //	protected void configure(HttpSecurity http) throws Exception {
 //

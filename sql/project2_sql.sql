@@ -54,4 +54,4 @@
 --('pending', 'train ticket', 'travel', 60.00, Now(), Now(), 2);
 --
 --
-select * reimbursementschema.employee;
+select * from reimbursementschema.ticket;
