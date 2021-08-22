@@ -6,7 +6,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,18 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.reimbursementAPI.model.Employee;
 
-import manager.LoginManager;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.revature.reimbursementAPI.manager.LoginManager;
 
-import com.revature.reimbursementAPI.model.Employee;
-
-import manager.EmployeeManager;
+import com.revature.reimbursementAPI.manager.EmployeeManager;
 
 @RestController
 @RequestMapping(path="/auth")

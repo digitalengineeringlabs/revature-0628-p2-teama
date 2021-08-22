@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.reimbursementAPI.model.Employee;
 
-import manager.EmployeeManager;
+import com.revature.reimbursementAPI.manager.EmployeeManager;
 
 
 @RestController

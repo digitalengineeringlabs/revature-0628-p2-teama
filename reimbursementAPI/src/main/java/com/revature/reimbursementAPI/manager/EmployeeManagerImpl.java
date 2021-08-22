@@ -1,4 +1,4 @@
-package manager;
+package com.revature.reimbursementAPI.manager;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.revature.reimbursementAPI.model.Employee;
 
-import dao.EmployeeDao;
+import com.revature.reimbursementAPI.dao.EmployeeDao;
 
 
 
