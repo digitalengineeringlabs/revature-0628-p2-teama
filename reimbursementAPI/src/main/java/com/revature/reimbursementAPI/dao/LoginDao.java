@@ -1,4 +1,4 @@
-package dao;
+package com.revature.reimbursementAPI.dao;
 
 import java.util.List;
 

@@ -1,14 +1,12 @@
-package manager;
+package com.revature.reimbursementAPI.manager;
 
-
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.reimbursementAPI.model.Employee;
 
-import dao.LoginDao;
+import com.revature.reimbursementAPI.dao.LoginDao;
 
 @Service
 public class LogManagerImpl implements LoginManager {

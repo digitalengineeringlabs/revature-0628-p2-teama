@@ -1,4 +1,4 @@
-package manager;
+package com.revature.reimbursementAPI.manager;
 
 import java.util.List;
 import java.util.Optional;
