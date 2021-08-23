@@ -41,16 +41,15 @@ public class Ticket {
     private double amount;
 
     @CreationTimestamp
-    @Column(name="date_made")
+    @Column(name="date_made", updatable = false)
     private Timestamp dateMade;
 
     @UpdateTimestamp
-    @Column(name="date_resolved", updatable = false)
+    @Column(name="date_resolved")
     private Timestamp lastModified;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="employee_id")
-    private Employee employee;
+    @Column(name="employee_id")
+    private Integer employee_id;
 
 
     public Ticket() {
