@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.reimbursementAPI.manager.LoginManager;
-import com.revature.reimbursementAPI.manager.LoginManagerImpl;
 import com.revature.reimbursementAPI.model.Employee;
 
 @RestController
@@ -19,12 +18,6 @@ public class LoginController {
 
 	@Autowired
 	private LoginManager manager;
-<<<<<<< HEAD
-=======
-
-	@Autowired
-	private EmployeeManager er;
->>>>>>> 37eeada69c647fa13921fd25411a7b0052a548a4
 
 //	@Autowired
 //	private EmployeeManager er;
@@ -35,17 +28,10 @@ public class LoginController {
 		return manager.findbyUsernameAndPassword(username, password);
 	}
 
-<<<<<<< HEAD
 //	@GetMapping(produces="application/json")
 //	public List<Employee> getAllEmployees(){
 //		return manager.findAll();
 //	}
-=======
-	@GetMapping(produces="application/json")
-	public List<Employee> getAllEmployees(){
-		return er.findAll();
-	}
->>>>>>> 37eeada69c647fa13921fd25411a7b0052a548a4
 
 	@PostMapping(consumes="application/json", produces="application/json")
 	public Employee create(@Valid @RequestBody Employee emp) {
