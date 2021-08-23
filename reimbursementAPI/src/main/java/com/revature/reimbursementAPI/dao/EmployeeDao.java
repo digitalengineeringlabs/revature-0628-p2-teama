@@ -15,6 +15,10 @@ public interface EmployeeDao extends JpaRepository<Employee, Integer> {
 //
 //	@Query(value="select * from employee where age > ?1",nativeQuery = true)
 //	public List<Employee> getSeniorEmployees(int limit);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 37eeada69c647fa13921fd25411a7b0052a548a4
 
 
 }
