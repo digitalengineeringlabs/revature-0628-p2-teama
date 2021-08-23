@@ -17,9 +17,9 @@ import com.revature.reimbursementAPI.model.Employee;
 
 
 public interface LoginManager{
-		
+
 	public Employee findbyUserAndPass(String username, String password);
 
 	public Employee create(@Valid Employee emp);
-	
+
 }

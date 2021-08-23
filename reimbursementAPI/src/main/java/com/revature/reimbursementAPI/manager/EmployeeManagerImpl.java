@@ -17,7 +17,7 @@ import com.revature.reimbursementAPI.dao.EmployeeDao;
 
 @Service
 public class EmployeeManagerImpl implements EmployeeManager {
-	
+
 	@Autowired
 	private EmployeeDao dao;
 
@@ -27,11 +27,11 @@ public class EmployeeManagerImpl implements EmployeeManager {
 //		return dao.findByGenderAndAge("M",31);
 //		return dao.getEmployeesWithMedian(40000,50000);
 //		return dao.getSeniorEmployees(30);
-		
+
 		return StreamSupport.stream(dao.findAll().spliterator(), false)
 				.collect(Collectors.toList());
 	}
-	
+
 
 	@Override
 	public Employee findById(int id) {
@@ -40,7 +40,7 @@ public class EmployeeManagerImpl implements EmployeeManager {
 
 //	@Override
 //	public List<GenderSalary> fetchSalaryDataByGender() {
-//		
+//
 //		return dao.fetchSalaryDataByGender();
 //	}
 

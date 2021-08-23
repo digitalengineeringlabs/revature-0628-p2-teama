@@ -10,13 +10,13 @@ import com.revature.reimbursementAPI.dao.LoginDao;
 
 @Service
 public class LogManagerImpl implements LoginManager {
-	
+
 	@Autowired
 	private LoginDao dao;
-	
+
 	@Override
 	public Employee findbyUserAndPass(String username, String password) {
-		
+
 		return dao.findByUserAndPass(username, password);
 	}
 

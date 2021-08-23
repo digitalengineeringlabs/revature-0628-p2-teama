@@ -7,13 +7,13 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "ticket", schema = "ReimbursementSchema")
+@Table(name = "ticket", schema="reimbursementschema")
 public class Ticket {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ticket_id")
-    private int ticket_id;
+    private Integer ticket_id;
 
     @Column(name="status")
     @Enumerated(EnumType.STRING)
@@ -34,11 +34,10 @@ public class Ticket {
     private Timestamp dateMade;
 
     @UpdateTimestamp
-    @Column(name="last_modified")
+    @Column(name="date_resolved", updatable = false)
     private Timestamp lastModified;
 
-    @Column(name="employee_id")
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="employee_id")
     private Employee employee;
 
@@ -56,7 +55,7 @@ public class Ticket {
         this.lastModified = lastModified;
     }
 
-    public long getTicket_id() {
+    public Integer getTicket_id() {
         return ticket_id;
     }
 
