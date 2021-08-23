@@ -1,6 +1,7 @@
 package com.revature.reimbursementAPI.model;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
@@ -30,16 +31,21 @@ public class Ticket {
     private double amount;
 
     @CreationTimestamp
-    @Column(name="date_made")
+    @Column(name="date_made", updatable = false)
     private Timestamp dateMade;
 
     @UpdateTimestamp
-    @Column(name="date_resolved", updatable = false)
+    @Column(name="date_resolved")
     private Timestamp lastModified;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="employee_id")
-    private Employee employee;
+    @Column(name="employee_id")
+    private Integer employeeId;
+
+
+//    @ManyToOne(targetEntity = Employee.class, fetch = FetchType.LAZY)
+//    @JoinColumn(name="employee_id")
+//    private Employee employee;
+
 
 
     public Ticket() {
@@ -99,9 +105,7 @@ public class Ticket {
         return dateMade;
     }
 
-    public void setDateMade(Timestamp dateMade) {
-        this.dateMade = dateMade;
-    }
+    // date made shouldn't be set-able
 
     public Timestamp getLastModified() {
         return lastModified;
@@ -110,4 +114,16 @@ public class Ticket {
     public void setLastModified(Timestamp lastModified) {
         this.lastModified = lastModified;
     }
+
+    public Integer getEmployeeId() {
+        return employeeId;
+    }
+
+    //    public Employee getEmployee() {
+//        return employee;
+//    }
+
+//    public void setEmployee(Employee employee) {
+//        this.employee = employee;
+//    }
 }
