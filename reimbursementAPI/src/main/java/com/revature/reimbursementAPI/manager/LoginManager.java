@@ -1,6 +1,5 @@
 package com.revature.reimbursementAPI.manager;
 
-import java.util.List;
 
 import javax.validation.Valid;
 
@@ -11,6 +10,8 @@ public interface LoginManager{
 
 	Employee findbyUsernameAndPassword(String username, String password);
 
+//	public Employee findByUsername(String username);
+	
 	public Employee create(@Valid Employee employee);
 
 }

@@ -7,9 +7,9 @@ import com.revature.reimbursementAPI.model.Employee;
 
 @EnableJpaRepositories
 public interface LoginDao extends JpaRepository<Employee, String>{
-
-	Employee e = new Employee();
 	
 	public Employee findByUsernameAndPassword(String username, String password);
 
+	
+//	public Employee findByUsername(String username);
 }
