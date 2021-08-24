@@ -12,7 +12,4 @@ import org.springframework.stereotype.Repository;
 public interface TicketDao extends JpaRepository<Ticket, Integer> {
 
 	public List<Ticket> findByEmployeeId(int employeeId);
-
-	
-	
 }
