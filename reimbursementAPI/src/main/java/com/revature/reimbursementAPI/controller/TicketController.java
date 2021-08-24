@@ -1,5 +1,6 @@
 package com.revature.reimbursementAPI.controller;
 
+
 import com.revature.reimbursementAPI.manager.TicketManager;
 import com.revature.reimbursementAPI.manager.TicketManagerImpl;
 import com.revature.reimbursementAPI.model.Ticket;
@@ -18,35 +19,48 @@ import java.util.List;
 @RequestMapping("/ticket")
 public class TicketController {
 
-    @Autowired
-    TicketManager ticketManager;
 
+	@Autowired
+    private TicketManager ticketManager;
+    
     private static final Logger LOGGER = LogManager.getLogger(TicketController.class);
 
-//    public TicketController(TicketManager ticketManager) {
-//        this.ticketManager = ticketManager;
-//    }
 
     @GetMapping
-    public ResponseEntity<List<Ticket>> getAllTickets() {
-        LOGGER.info("Fetching all Tickets");
-        List<Ticket> tickets = ticketManager.getTickets();
-        return new ResponseEntity<>(tickets, HttpStatus.OK);
+    public List<Ticket> getAllTickets() {
+       LOGGER.info("Fetching all Tickets");
+       return ticketManager.getTickets();
     }
 
-    @GetMapping({"/{ticketId}"})
-    public ResponseEntity<Ticket> getTicket(@PathVariable Integer ticketId) {
-        return new ResponseEntity<>(ticketManager.getTicketById(ticketId), HttpStatus.OK);
+    @GetMapping(path="/{ticketId}", produces="application/json")
+    public Ticket getTicket(@PathVariable Integer ticketId) {
+        return ticketManager.getTicketById(ticketId);
     }
-
-    @PostMapping
-    public ResponseEntity<Ticket> saveTicket(@RequestBody Ticket ticket) {
-        Ticket ticket1 = ticketManager.insert(ticket);
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add("ticket", "/ticket" + ticket1.getTicket_id().toString());
-        return new ResponseEntity<>(ticket1, httpHeaders, HttpStatus.CREATED);
-
+    
+    @GetMapping(path="/e/{employeeId}", produces="application/json")
+    public List<Ticket> getTicketsByEmployee(@PathVariable Integer employeeId) {
+        return ticketManager.findByEmployeeId(employeeId);
     }
+    
+//    @GetMapping(path="/getTicket", produces="application/json")
+//    public Ticket getTicket(int id) {
+//        return ticketManager.getTicketById(ticketManager.get());
+//    }
+
+    
+//    @PostMapping
+//    public ResponseEntity<Ticket> saveTicket(@RequestBody Ticket ticket) {
+//        Ticket ticket1 = ticketManager.insert(ticket);
+//        HttpHeaders httpHeaders = new HttpHeaders();
+//        httpHeaders.add("ticket", "/ticket" + ticket1.getTicket_id().toString());
+//        return new ResponseEntity<>(ticket1, httpHeaders, HttpStatus.CREATED);
+//
+//    }
+    
+    @PostMapping(consumes="application/json", produces="application/json")
+	public Ticket create(@RequestBody Ticket t) {
+		return ticketManager.create(t);
+	}
 
     @DeleteMapping({"/delete/{ticketId}"})
     public ResponseEntity<Ticket> deleteTicket(@PathVariable("ticketId") Integer ticketId) {

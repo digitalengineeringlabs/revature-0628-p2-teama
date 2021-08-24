@@ -45,22 +45,29 @@ public class Ticket {
     @Column(name="date_resolved")
     private Timestamp lastModified;
 
+    
+    
     @Column(name="employee_id")
-    private Integer employee_id;
+    private Integer employeeId;
 
 
     public Ticket() {
         super();
     }
+    
+    //look into different datatypes for date
 
-    public Ticket(TicketStatus status, String note, TicketType ticketType, double amount, Timestamp dateMade, Timestamp lastModified, Integer employee_id) {
+
+    public Ticket(TicketStatus status, String note, TicketType ticketType, double amount, Timestamp dateMade, Timestamp lastModified, int employeeId) {
+
         this.status = status;
         this.note = note;
         this.ticketType = ticketType;
         this.amount = amount;
         this.dateMade = dateMade;
         this.lastModified = lastModified;
-        this.employee_id = employee_id;
+        this.employeeId = employeeId;
+
     }
 
     public Integer getTicket_id() {
@@ -118,8 +125,13 @@ public class Ticket {
     public void setLastModified(Timestamp lastModified) {
         this.lastModified = lastModified;
     }
+    
+    public int getEmployee_id() {
+        return employeeId;
+    }
 
-    public Integer getEmployee_id() {
-        return employee_id;
+    public void setEmployee_id(int employeeId) {
+        this.employeeId = employeeId;
+
     }
 }

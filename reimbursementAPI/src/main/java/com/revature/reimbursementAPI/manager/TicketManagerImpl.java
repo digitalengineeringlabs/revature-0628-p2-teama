@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Service
 public class TicketManagerImpl implements TicketManager{
@@ -24,9 +26,8 @@ public class TicketManagerImpl implements TicketManager{
     @Override
     public List<Ticket> getTickets() {
         LOGGER.info("Calling getTickets() from the manager implementation");
-        List<Ticket> tickets = new ArrayList<>();
-        ticketDao.findAll().forEach(tickets::add);
-        return tickets;
+        //List<Ticket> tickets = new ArrayList<>();
+        return StreamSupport.stream(ticketDao.findAll().spliterator(), false).collect(Collectors.toList());
     }
 
     // get ticket by id
@@ -50,6 +51,18 @@ public class TicketManagerImpl implements TicketManager{
         LOGGER.info("Calling delete from withing service implementation");
         ticketDao.deleteById(ticketId);
     }
+
+	@Override
+	public Ticket create(Ticket t) {
+		return ticketDao.save(t);
+	}
+
+	@Override
+	public List<Ticket> findByEmployeeId(Integer employeeId) {
+		
+		return ticketDao.findByEmployeeId(5);
+	}
+
 
     // create ticket
 
