@@ -64,7 +64,7 @@ insert into reimbursementschema.ticket (status, note, type, amount, date_made, d
 --
 -- Drop table reimbursementschema.ticket;
 --
--- DROP TABLE reimbursementschema.ticket;
+ DROP TABLE reimbursementschema.ticket;
 --
 --CREATE TABLE reimbursementschema.ticket (
 --	ticket_id serial NOT NULL,
