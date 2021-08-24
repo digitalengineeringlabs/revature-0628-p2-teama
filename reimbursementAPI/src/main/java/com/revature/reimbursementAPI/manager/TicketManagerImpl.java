@@ -3,6 +3,8 @@ package com.revature.reimbursementAPI.manager;
 import com.revature.reimbursementAPI.controller.TicketController;
 import com.revature.reimbursementAPI.dao.TicketDao;
 import com.revature.reimbursementAPI.model.Ticket;
+import com.revature.reimbursementAPI.model.TicketStatus;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
@@ -20,12 +22,16 @@ public class TicketManagerImpl implements TicketManager{
         this.ticketDao = ticketDao;
     }
 
-    // get all tickets
+    // get all tickets and filtered tickets
     @Override
-    public List<Ticket> getTickets() {
+    public List<Ticket> getTickets(TicketStatus status) {
         LOGGER.info("Calling getTickets() from the manager implementation");
         List<Ticket> tickets = new ArrayList<>();
-        ticketDao.findAll().forEach(tickets::add);
+        if (status != null) {
+        	ticketDao.findByStatus(status).forEach(tickets::add);	
+        } else {
+        	ticketDao.findAll().forEach(tickets::add);
+        }
         return tickets;
     }
 

@@ -3,6 +3,8 @@ package com.revature.reimbursementAPI.controller;
 import com.revature.reimbursementAPI.manager.TicketManager;
 import com.revature.reimbursementAPI.manager.TicketManagerImpl;
 import com.revature.reimbursementAPI.model.Ticket;
+import com.revature.reimbursementAPI.model.TicketStatus;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpHeaders;
@@ -26,9 +28,9 @@ public class TicketController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Ticket>> getAllTickets() {
+    public ResponseEntity<List<Ticket>> getAllTickets(@RequestParam(required = false) TicketStatus status) {
         LOGGER.info("Fetching all Tickets");
-        List<Ticket> tickets = ticketManager.getTickets();
+        List<Ticket> tickets = ticketManager.getTickets(status);
         return new ResponseEntity<>(tickets, HttpStatus.OK);
     }
 
