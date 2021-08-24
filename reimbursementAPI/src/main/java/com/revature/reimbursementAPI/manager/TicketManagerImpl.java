@@ -47,7 +47,8 @@ public class TicketManagerImpl implements TicketManager{
 
     @Override
     public void deleteTicket(Integer ticketId) {
-
+        LOGGER.info("Calling delete from withing service implementation");
+        ticketDao.deleteById(ticketId);
     }
 
     // create ticket

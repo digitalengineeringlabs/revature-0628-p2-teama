@@ -5,23 +5,27 @@ import com.revature.reimbursementAPI.manager.TicketManagerImpl;
 import com.revature.reimbursementAPI.model.Ticket;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.MessageFormat;
 import java.util.List;
 
 @RestController
 @RequestMapping("/ticket")
 public class TicketController {
 
+    @Autowired
     TicketManager ticketManager;
+
     private static final Logger LOGGER = LogManager.getLogger(TicketController.class);
 
-    public TicketController(TicketManager ticketManager) {
-        this.ticketManager = ticketManager;
-    }
+//    public TicketController(TicketManager ticketManager) {
+//        this.ticketManager = ticketManager;
+//    }
 
     @GetMapping
     public ResponseEntity<List<Ticket>> getAllTickets() {
@@ -42,6 +46,13 @@ public class TicketController {
         httpHeaders.add("ticket", "/ticket" + ticket1.getTicket_id().toString());
         return new ResponseEntity<>(ticket1, httpHeaders, HttpStatus.CREATED);
 
+    }
+
+    @DeleteMapping({"/delete/{ticketId}"})
+    public ResponseEntity<Ticket> deleteTicket(@PathVariable("ticketId") Integer ticketId) {
+        LOGGER.info(MessageFormat.format("Calling delete method on ticket id: {0}", ticketId));
+        ticketManager.deleteTicket(ticketId);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }
