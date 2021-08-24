@@ -11,5 +11,5 @@ public interface LoginDao extends JpaRepository<Employee, String>{
 	public Employee findByUsernameAndPassword(String username, String password);
 
 	
-//	public Employee findByUsername(String username);
+
 }

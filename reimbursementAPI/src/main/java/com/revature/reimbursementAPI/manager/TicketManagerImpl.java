@@ -1,14 +1,16 @@
 package com.revature.reimbursementAPI.manager;
 
-import com.revature.reimbursementAPI.controller.TicketController;
-import com.revature.reimbursementAPI.dao.TicketDao;
-import com.revature.reimbursementAPI.model.Ticket;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.revature.reimbursementAPI.dao.TicketDao;
+import com.revature.reimbursementAPI.model.Ticket;
+import com.revature.reimbursementAPI.model.TicketStatus;
 
 @Service
 public class TicketManagerImpl implements TicketManager{
@@ -20,13 +22,15 @@ public class TicketManagerImpl implements TicketManager{
         this.ticketDao = ticketDao;
     }
 
-    // get all tickets
+    // get all tickets and filtered tickets
     @Override
-    public List<Ticket> getTickets() {
+    public List<Ticket> getTickets(TicketStatus status) {
         LOGGER.info("Calling getTickets() from the manager implementation");
-        List<Ticket> tickets = new ArrayList<>();
-        ticketDao.findAll().forEach(tickets::add);
-        return tickets;
+        if (status != null) {
+            return StreamSupport.stream(ticketDao.findByStatus(status).spliterator(), false).collect(Collectors.toList());
+        } else {
+        	return StreamSupport.stream(ticketDao.findAll().spliterator(), false).collect(Collectors.toList());
+        }
     }
 
     // get ticket by id
@@ -41,8 +45,8 @@ public class TicketManagerImpl implements TicketManager{
     }
 
     @Override
-    public void updateTicket(Integer id, Ticket ticket) {
-
+    public Ticket updateTicket(Ticket ticket) {
+    	return ticketDao.save(ticket);
     }
 
     @Override
@@ -50,6 +54,18 @@ public class TicketManagerImpl implements TicketManager{
         LOGGER.info("Calling delete from withing service implementation");
         ticketDao.deleteById(ticketId);
     }
+
+	@Override
+	public Ticket create(Ticket t) {
+		return ticketDao.save(t);
+	}
+
+	@Override
+	public List<Ticket> findByEmployeeId(Integer employeeId) {
+		
+		return ticketDao.findByEmployeeId(5);
+	}
+
 
     // create ticket
 
