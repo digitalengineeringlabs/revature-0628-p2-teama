@@ -1,8 +1,8 @@
 DROP SCHEMA IF EXISTS ReimbursementSchema CASCADE;
 
-CREATE SCHEMA ReimbursementSchema AUTHORIZATION postgres;
+CREATE SCHEMA reimbursementschema AUTHORIZATION postgres;
 
-CREATE TABLE ReimbursementSchema.employee (
+CREATE TABLE reimbursementschema.employee (
 	employee_id serial NOT NULL,
 	first_name varchar(255) NOT NULL,
 	last_name varchar(255) NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE ReimbursementSchema.employee (
 );
 
 
-CREATE TABLE ReimbursementSchema.ticket (
+CREATE TABLE reimbursementschema.ticket (
 	ticket_id serial NOT NULL,
 	status varchar(255) NOT NULL,
 	note varchar(500) NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE ReimbursementSchema.ticket (
 	primary key (ticket_id),
 	constraint fk_employee
 		foreign key (employee_id) 
-			references ReimbursementSchema.employee(employee_id)
+			references reimbursementschema.employee(employee_id)
 );
 
 INSERT INTO reimbursementschema.employee (f_name,l_name, role, username, password) VALUES ('nick','card', 'employee', 'nickcard@email.com', 'nickcard');
