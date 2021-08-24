@@ -120,4 +120,8 @@ public class Ticket {
     public void setLastModified(Timestamp lastModified) {
         this.lastModified = lastModified;
     }
+
+	public Integer getEmployee_id() {
+		return employee_id;
+	}
 }

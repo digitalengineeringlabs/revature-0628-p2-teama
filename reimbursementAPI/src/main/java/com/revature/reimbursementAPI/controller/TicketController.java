@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/ticket")
 public class TicketController {
@@ -37,20 +39,13 @@ public class TicketController {
 
     @PostMapping
     public ResponseEntity<Ticket> saveTicket(@RequestBody Ticket ticket) {
-        Ticket ticket1 = ticketManager.insert(ticket);
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add("ticket", "/ticket" + ticket1.getTicket_id().toString());
-        return new ResponseEntity<>(ticket1, httpHeaders, HttpStatus.CREATED);
-
+    	if (ticket.getTicket_id() != null) {
+    		return ResponseEntity.ok().body(ticketManager.updateTicket(ticket));
+    	} else {
+    		Ticket ticket1 = ticketManager.insert(ticket);
+            HttpHeaders httpHeaders = new HttpHeaders();
+            httpHeaders.add("ticket", "/ticket" + ticket1.getTicket_id().toString());
+            return new ResponseEntity<>(ticket1, httpHeaders, HttpStatus.CREATED);
+    	}
     }
-    
-    @PostMapping
-    public ResponseEntity<Ticket> updateTicket(@RequestBody Ticket ticket) {
-    	Ticket ticket1 = ticketManager.updateTicket(ticket);
-    	HttpHeaders httpHeaders = new HttpHeaders();
-    	httpHeaders.add("ticket", "/ticket" + ticket1.getTicket_id().toString());
-    	return new ResponseEntity<>(ticket1, httpHeaders, HttpStatus.OK);
-    	
-    }
-
 }
