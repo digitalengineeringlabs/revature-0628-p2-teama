@@ -41,8 +41,8 @@ public class TicketManagerImpl implements TicketManager{
     }
 
     @Override
-    public void updateTicket(Integer id, Ticket ticket) {
-
+    public Ticket updateTicket(Ticket ticket) {
+    	return ticketDao.save(ticket);
     }
 
     @Override

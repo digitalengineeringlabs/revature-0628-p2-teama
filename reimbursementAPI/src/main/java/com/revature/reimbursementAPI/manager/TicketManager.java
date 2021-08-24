@@ -12,7 +12,7 @@ public interface TicketManager {
 
     Ticket insert(Ticket ticket);
 
-    void updateTicket(Integer id, Ticket ticket);
+    Ticket updateTicket(Ticket ticket);
 
     void deleteTicket(Integer ticketId);
 }

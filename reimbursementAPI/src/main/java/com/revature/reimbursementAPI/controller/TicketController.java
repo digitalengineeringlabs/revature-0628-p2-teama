@@ -43,5 +43,14 @@ public class TicketController {
         return new ResponseEntity<>(ticket1, httpHeaders, HttpStatus.CREATED);
 
     }
+    
+    @PostMapping
+    public ResponseEntity<Ticket> updateTicket(@RequestBody Ticket ticket) {
+    	Ticket ticket1 = ticketManager.updateTicket(ticket);
+    	HttpHeaders httpHeaders = new HttpHeaders();
+    	httpHeaders.add("ticket", "/ticket" + ticket1.getTicket_id().toString());
+    	return new ResponseEntity<>(ticket1, httpHeaders, HttpStatus.OK);
+    	
+    }
 
 }
