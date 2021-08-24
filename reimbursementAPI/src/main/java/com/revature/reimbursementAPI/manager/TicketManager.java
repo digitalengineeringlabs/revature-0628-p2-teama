@@ -1,14 +1,13 @@
 package com.revature.reimbursementAPI.manager;
 
-import com.revature.reimbursementAPI.model.Ticket;
-
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
+import com.revature.reimbursementAPI.model.Ticket;
+import com.revature.reimbursementAPI.model.TicketStatus;
 
 public interface TicketManager {
-
-    List<Ticket> getTickets();
+    
+    List<Ticket> getTickets(TicketStatus filter);
 
     Ticket getTicketById(Integer id);
     
@@ -16,7 +15,7 @@ public interface TicketManager {
 
     Ticket insert(Ticket ticket);
 
-    void updateTicket(Integer id, Ticket ticket);
+    Ticket updateTicket(Ticket ticket);
 
     void deleteTicket(Integer ticketId);
 

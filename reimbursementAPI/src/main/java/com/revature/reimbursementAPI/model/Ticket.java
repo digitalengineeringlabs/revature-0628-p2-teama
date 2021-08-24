@@ -127,7 +127,6 @@ public class Ticket {
     }
 
 
-
     public int getEmployeeId() {
     	return employeeId;
     }
@@ -135,7 +134,4 @@ public class Ticket {
     public void setEmployeeId(int employeeId) {
     	this.employeeId = employeeId;
     }
-    
-
-    
 }
