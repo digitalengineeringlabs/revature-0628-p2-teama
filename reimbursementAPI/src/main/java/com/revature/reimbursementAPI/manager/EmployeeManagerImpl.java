@@ -7,9 +7,8 @@ import java.util.stream.StreamSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.reimbursementAPI.model.Employee;
-
 import com.revature.reimbursementAPI.dao.EmployeeDao;
+import com.revature.reimbursementAPI.model.Employee;
 
 
 

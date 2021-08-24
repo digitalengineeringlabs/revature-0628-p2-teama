@@ -1,43 +1,37 @@
 package com.revature.reimbursementAPI.controller;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.reimbursementAPI.manager.LoginManager;
 import com.revature.reimbursementAPI.model.Employee;
 
-import com.revature.reimbursementAPI.manager.LoginManager;
-
-import com.revature.reimbursementAPI.manager.EmployeeManager;
-
 @RestController
-@RequestMapping(path="/auth")
+@RequestMapping(path="/login")
 public class LoginController {
 
 	@Autowired
 	private LoginManager manager;
 
-	@Autowired
-	private EmployeeManager er;
+//	@Autowired
+//	private EmployeeManager er;
 
-	@PostMapping(consumes="application/json", produces="application/json")
-	public Employee findbyUserAndPass(String username, String password) {
+	@GetMapping(consumes="application/json", produces="application/json")
+	public Employee findbyUsernameAndPassword(String username, String password) {
 		System.out.println();
-		return manager.findbyUserAndPass(username, password);
+		return manager.findbyUsernameAndPassword(username, password);
 	}
 
-	@GetMapping(produces="application/json")
-	public List<Employee> getAllEmployees(){
-		return er.findAll();
-	}
+//	@GetMapping(produces="application/json")
+//	public List<Employee> getAllEmployees(){
+//		return manager.findAll();
+//	}
 
 	@PostMapping(consumes="application/json", produces="application/json")
 	public Employee create(@Valid @RequestBody Employee emp) {

@@ -1,10 +1,21 @@
 package com.revature.reimbursementAPI.model;
 
+import java.sql.Timestamp;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
-import javax.persistence.*;
-import java.sql.Timestamp;
 
 @Entity
 @Table(name = "ticket", schema="reimbursementschema")
@@ -30,16 +41,15 @@ public class Ticket {
     private double amount;
 
     @CreationTimestamp
-    @Column(name="date_made")
+    @Column(name="date_made", updatable = false)
     private Timestamp dateMade;
 
     @UpdateTimestamp
-    @Column(name="date_resolved", updatable = false)
+    @Column(name="date_resolved")
     private Timestamp lastModified;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="employee_id")
-    private Employee employee;
+    @Column(name="employee_id")
+    private Integer employee_id;
 
 
     public Ticket() {
