@@ -40,9 +40,17 @@ public class TicketController {
     public List<Ticket> getTicketsByEmployee(@PathVariable Integer employeeId) {
         return ticketManager.findByEmployeeId(employeeId);
     }
+  
+    @DeleteMapping({"/delete/{ticketId}"})
+    public ResponseEntity<Ticket> deleteTicket(@PathVariable("ticketId") Integer ticketId) {
+        LOGGER.info(MessageFormat.format("Calling delete method on ticket id: {0}", ticketId));
+        ticketManager.deleteTicket(ticketId);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     
     @PostMapping(consumes="application/json", produces="application/json")
-	public Ticket create(@RequestBody Ticket t) {
+	  public Ticket create(@RequestBody Ticket t) {
     	if (t.getTicket_id() != null) {
     		return ticketManager.updateTicket(t);
     	}
