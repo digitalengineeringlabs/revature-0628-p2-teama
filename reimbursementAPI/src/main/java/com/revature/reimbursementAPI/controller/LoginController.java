@@ -2,6 +2,7 @@ package com.revature.reimbursementAPI.controller;
 
 import javax.validation.Valid;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,10 +23,11 @@ public class LoginController {
 //	@Autowired
 //	private EmployeeManager er;
 
-	@GetMapping(consumes="application/json", produces="application/json")
-	public Employee findbyUsernameAndPassword(String username, String password) {
+	
+	@PostMapping(consumes="application/json", produces="application/json")
+	public Employee findbyUsernameAndPassword(@RequestBody Employee e) {
 		System.out.println();
-		return manager.findbyUsernameAndPassword(username, password);
+		return manager.findByUsernameAndPassword(e.getUsername(), e.getPassword());
 	}
 
 //	@GetMapping(produces="application/json")
@@ -33,7 +35,7 @@ public class LoginController {
 //		return manager.findAll();
 //	}
 
-	@PostMapping(consumes="application/json", produces="application/json")
+	@PostMapping(path="/r", consumes="application/json", produces="application/json")
 	public Employee create(@Valid @RequestBody Employee emp) {
 		return manager.create(emp);
 	}
