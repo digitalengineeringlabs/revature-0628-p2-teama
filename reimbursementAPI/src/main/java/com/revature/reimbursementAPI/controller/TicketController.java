@@ -20,22 +20,29 @@ import java.util.List;
 public class TicketController {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     @Autowired
     TicketManager ticketManager;
 
     private static final Logger LOGGER = LogManager.getLogger(TicketController.class);
 
 =======
+=======
+
+>>>>>>> 03a2f33e2372eef971474032c1940ccabdea54b5
 	@Autowired
     private TicketManager ticketManager;
     
     private static final Logger LOGGER = LogManager.getLogger(TicketController.class);
 
+<<<<<<< HEAD
     
 >>>>>>> submitTicket
 //    public TicketController(TicketManager ticketManager) {
 //        this.ticketManager = ticketManager;
 //    }
+=======
+>>>>>>> 03a2f33e2372eef971474032c1940ccabdea54b5
 
     @GetMapping
     public List<Ticket> getAllTickets() {
