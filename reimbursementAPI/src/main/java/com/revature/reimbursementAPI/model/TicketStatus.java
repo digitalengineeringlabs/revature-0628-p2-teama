@@ -1,5 +1,6 @@
 package com.revature.reimbursementAPI.model;
 
 public enum TicketStatus {
-    pending, approved, rejected
+    PENDING, RESOLVED, REJECTED, pending, resolved, rejected, APPROVED, approved
+
 }

@@ -6,12 +6,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -56,13 +53,14 @@ public class Ticket {
         super();
     }
 
-    public Ticket(TicketStatus status, String note, TicketType ticketType, double amount, Timestamp dateMade, Timestamp lastModified) {
+    public Ticket(TicketStatus status, String note, TicketType ticketType, double amount, Timestamp dateMade, Timestamp lastModified, Integer employee_id) {
         this.status = status;
         this.note = note;
         this.ticketType = ticketType;
         this.amount = amount;
         this.dateMade = dateMade;
         this.lastModified = lastModified;
+        this.employee_id = employee_id;
     }
 
     public Integer getTicket_id() {
@@ -119,5 +117,9 @@ public class Ticket {
 
     public void setLastModified(Timestamp lastModified) {
         this.lastModified = lastModified;
+    }
+
+    public Integer getEmployee_id() {
+        return employee_id;
     }
 }
