@@ -6,12 +6,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -60,7 +57,9 @@ public class Ticket {
     
     //look into different datatypes for date
 
+
     public Ticket(TicketStatus status, String note, TicketType ticketType, double amount, Timestamp dateMade, Timestamp lastModified, int employeeId) {
+
         this.status = status;
         this.note = note;
         this.ticketType = ticketType;
@@ -68,6 +67,7 @@ public class Ticket {
         this.dateMade = dateMade;
         this.lastModified = lastModified;
         this.employeeId = employeeId;
+
     }
 
     public Integer getTicket_id() {
@@ -132,5 +132,6 @@ public class Ticket {
 
     public void setEmployee_id(int employeeId) {
         this.employeeId = employeeId;
+
     }
 }

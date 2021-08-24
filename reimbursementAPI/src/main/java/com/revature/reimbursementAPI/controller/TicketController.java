@@ -12,21 +12,19 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.MessageFormat;
 import java.util.List;
 
 @RestController
 @RequestMapping("/ticket")
 public class TicketController {
 
+
 	@Autowired
     private TicketManager ticketManager;
     
     private static final Logger LOGGER = LogManager.getLogger(TicketController.class);
 
-    
-//    public TicketController(TicketManager ticketManager) {
-//        this.ticketManager = ticketManager;
-//    }
 
     @GetMapping
     public List<Ticket> getAllTickets() {
@@ -63,5 +61,12 @@ public class TicketController {
 	public Ticket create(@RequestBody Ticket t) {
 		return ticketManager.create(t);
 	}
+
+    @DeleteMapping({"/delete/{ticketId}"})
+    public ResponseEntity<Ticket> deleteTicket(@PathVariable("ticketId") Integer ticketId) {
+        LOGGER.info(MessageFormat.format("Calling delete method on ticket id: {0}", ticketId));
+        ticketManager.deleteTicket(ticketId);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
 }
