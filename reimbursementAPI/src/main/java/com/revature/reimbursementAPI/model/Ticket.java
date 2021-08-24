@@ -57,33 +57,17 @@ public class Ticket {
     
     //look into different datatypes for date
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public Ticket(TicketStatus status, String note, TicketType ticketType, double amount, Timestamp dateMade, Timestamp lastModified, Integer employee_id) {
-=======
-    public Ticket(TicketStatus status, String note, TicketType ticketType, double amount, Timestamp dateMade, Timestamp lastModified, int employeeId) {
->>>>>>> submitTicket
-=======
 
     public Ticket(TicketStatus status, String note, TicketType ticketType, double amount, Timestamp dateMade, Timestamp lastModified, int employeeId) {
 
->>>>>>> 03a2f33e2372eef971474032c1940ccabdea54b5
+
         this.status = status;
         this.note = note;
         this.ticketType = ticketType;
         this.amount = amount;
         this.dateMade = dateMade;
         this.lastModified = lastModified;
-<<<<<<< HEAD
-<<<<<<< HEAD
-        this.employee_id = employee_id;
-=======
         this.employeeId = employeeId;
->>>>>>> submitTicket
-=======
-        this.employeeId = employeeId;
-
->>>>>>> 03a2f33e2372eef971474032c1940ccabdea54b5
     }
 
     public Integer getTicket_id() {
@@ -141,25 +125,17 @@ public class Ticket {
     public void setLastModified(Timestamp lastModified) {
         this.lastModified = lastModified;
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-    public Integer getEmployee_id() {
-        return employee_id;
-=======
-=======
->>>>>>> 03a2f33e2372eef971474032c1940ccabdea54b5
+
+
+    public int getEmployeeId() {
+    	return employeeId;
+    }
     
-    public int getEmployee_id() {
-        return employeeId;
+    public void setEmployeeId(int employeeId) {
+    	this.employeeId = employeeId;
     }
+    
 
-    public void setEmployee_id(int employeeId) {
-        this.employeeId = employeeId;
-<<<<<<< HEAD
->>>>>>> submitTicket
-=======
-
->>>>>>> 03a2f33e2372eef971474032c1940ccabdea54b5
-    }
+    
 }
