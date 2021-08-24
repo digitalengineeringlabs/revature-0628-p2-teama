@@ -4,8 +4,8 @@ CREATE SCHEMA ReimbursementSchema AUTHORIZATION postgres;
 
 CREATE TABLE ReimbursementSchema.employee (
 	employee_id serial NOT NULL,
-	f_name varchar(255) NOT NULL,
-	l_name varchar(255) NOT NULL,
+	first_name varchar(255) NOT NULL,
+	last_name varchar(255) NOT NULL,
 	username varchar(255) NOT NULL,
 	password varchar(255) not null,
 	role varchar(255) NOT null,
