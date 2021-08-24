@@ -1,8 +1,5 @@
 package com.revature.reimbursementAPI.manager;
 
-
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 //import org.springframework.security.core.userdetails.UserDetails;
@@ -22,10 +19,10 @@ public class LoginManagerImpl implements LoginManager {
 
 		Employee e = dao.findByUsernameAndPassword(username,password);
 	      if (e == null) {
-	    	  System.out.println("Invalid Username or Password");
+	    	  System.out.println("Try Again");
 	      }
 	      else System.out.println("Success!");
-	      
+	    System.out.println(e.getUsername());  
 		return e;
 	}
 
@@ -36,17 +33,5 @@ public class LoginManagerImpl implements LoginManager {
 		return dao.save(emp);
 	}
 	
-//	@Override
-//  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//
-//      Employee e = dao.findByUsername(username);
-//      if (e == null) {
-//          throw new UsernameNotFoundException(username);
-//      }
-//
-//      return (UserDetails) e;
-//
-//  }
-//	}
 
 }

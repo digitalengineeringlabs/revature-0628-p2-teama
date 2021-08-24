@@ -23,10 +23,6 @@ public class EmployeeManagerImpl implements EmployeeManager {
 	@Override
 	public List<Employee> findAll() {
 
-//		return dao.findByGenderAndAge("M",31);
-//		return dao.getEmployeesWithMedian(40000,50000);
-//		return dao.getSeniorEmployees(30);
-
 		return StreamSupport.stream(dao.findAll().spliterator(), false)
 				.collect(Collectors.toList());
 	}

@@ -23,16 +23,16 @@ public class LoginController {
 //	@Autowired
 //	private EmployeeManager er;
 
-	@GetMapping(consumes="application/json", produces="application/json")
-	public Employee findbyUsernameAndPassword(String username, String password) {
-		System.out.println();
-		return manager.findbyUsernameAndPassword(username, password);
+	@GetMapping(consumes="application/json")
+	public Employee loadByUsernameAndPassword(String username, String password) {
+		Employee e = manager.findbyUsernameAndPassword(username,password);
+	      if (e == null) {
+	    	  System.out.println("Invalid Username or Password");
+	      }
+	      else System.out.println("Success!");
+	      
+		return e;
 	}
-
-//	@GetMapping(produces="application/json")
-//	public List<Employee> getAllEmployees(){
-//		return manager.findAll();
-//	}
 
 	@PostMapping(consumes="application/json", produces="application/json")
 	public Employee create(@Valid @RequestBody Employee emp) {

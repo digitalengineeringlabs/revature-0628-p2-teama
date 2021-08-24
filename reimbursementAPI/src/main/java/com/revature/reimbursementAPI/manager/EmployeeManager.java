@@ -10,8 +10,6 @@ public interface EmployeeManager {
 
 	List<Employee> findAll();
 
-//	List<Employee> findAll(int startIndex, int count);
-
 	Employee findById(int id);
 
 	Employee create(Employee e);
