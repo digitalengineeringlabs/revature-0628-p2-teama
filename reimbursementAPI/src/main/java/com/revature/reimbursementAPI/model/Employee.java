@@ -65,9 +65,6 @@ public class Employee {
 		this.employee_id = employee_id;
 	}
 	
-	
-
-	 
 	    public String getFirstName() {
 		return firstName;
 	}

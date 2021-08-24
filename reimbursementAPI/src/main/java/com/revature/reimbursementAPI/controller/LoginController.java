@@ -37,6 +37,7 @@ public class LoginController {
 
 	@PostMapping(path="/r", consumes="application/json", produces="application/json")
 	public Employee create(@Valid @RequestBody Employee emp) {
+		System.out.println("new user created!");
 		return manager.create(emp);
 	}
 //
