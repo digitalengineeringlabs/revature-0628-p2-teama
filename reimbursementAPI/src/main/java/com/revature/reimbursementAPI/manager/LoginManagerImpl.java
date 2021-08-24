@@ -16,7 +16,7 @@ public class LoginManagerImpl implements LoginManager {
 	private LoginDao dao;
 	
 	@Override
-	public Employee findbyUsernameAndPassword(String username, String password) {
+	public Employee findByUsernameAndPassword(String username, String password) {
 
 		Employee e = dao.findByUsernameAndPassword(username,password);
 	      if (e == null) {
