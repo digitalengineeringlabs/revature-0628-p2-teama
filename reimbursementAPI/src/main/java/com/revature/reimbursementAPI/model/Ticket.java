@@ -131,6 +131,5 @@ public class Ticket {
 
     public void setEmployee_id(int employeeId) {
         this.employeeId = employeeId;
-
     }
 }
