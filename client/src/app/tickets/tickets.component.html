@@ -1,7 +1,10 @@
 <ul class="tickets">
     <li *ngFor="let ticket of tickets">
         {{ticket.ticketType}}
-        <span class="tick">{{ticket.note}}</span> {{ticket.amount | currency}} {{ticket.status}}
+        <span class="tick">{{ticket.note}}</span> 
+        {{ticket.amount | currency}} 
+        {{ticket.status}} 
+        {{ticket.dateMade | date}}
     </li>
   </ul>
 

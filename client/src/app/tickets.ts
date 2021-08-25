@@ -5,5 +5,5 @@ export interface Ticket {
     note: string;
     amount: string;
     employeeId: number;
-    
+    dateMade: Date;
 }
