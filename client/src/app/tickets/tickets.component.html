@@ -14,7 +14,8 @@
     <input id="new-amount"  #ticketAmount />
   
     
-    <button class="add-button" (click)="add(ticketType.value, ticketNote.value, ticketAmount.value);">
+    <button class="add-ticket" (click)="add(ticketType.value, ticketNote.value, ticketAmount.value);
+    ticketType.value=''; ticketNote.value=''; ticketAmount.value='';">
       Add Ticket
     </button>
   </div>
