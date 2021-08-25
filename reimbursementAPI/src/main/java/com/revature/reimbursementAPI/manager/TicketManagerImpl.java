@@ -3,6 +3,8 @@ package com.revature.reimbursementAPI.manager;
 import com.revature.reimbursementAPI.controller.TicketController;
 import com.revature.reimbursementAPI.dao.TicketDao;
 import com.revature.reimbursementAPI.model.Ticket;
+import com.revature.reimbursementAPI.model.TicketStatus;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
@@ -41,7 +43,7 @@ public class TicketManagerImpl implements TicketManager{
         return ticketDao.save(ticket);
     }
 
-    @Override
+	@Override
     public void updateTicket(Integer id, Ticket ticket) {
 
     }
@@ -61,6 +63,18 @@ public class TicketManagerImpl implements TicketManager{
 	public List<Ticket> findByEmployeeId(Integer employeeId) {
 		
 		return ticketDao.findByEmployeeId(5);
+	}
+
+	@Override
+	public List<Ticket> getTickets(TicketStatus filter) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Ticket updateTicket(Ticket ticket) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

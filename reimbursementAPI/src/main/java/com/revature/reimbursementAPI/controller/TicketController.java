@@ -26,6 +26,7 @@ public class TicketController {
     private static final Logger LOGGER = LogManager.getLogger(TicketController.class);
 
 
+    @CrossOrigin(origins="http://localhost:56648")
     @GetMapping
     public List<Ticket> getAllTickets() {
        LOGGER.info("Fetching all Tickets");
