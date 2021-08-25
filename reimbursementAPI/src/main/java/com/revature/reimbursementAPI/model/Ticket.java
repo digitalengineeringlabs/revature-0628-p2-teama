@@ -59,7 +59,6 @@ public class Ticket {
 
 
     public Ticket(TicketStatus status, String note, TicketType ticketType, double amount, Timestamp dateMade, Timestamp lastModified, int employeeId) {
-
         this.status = status;
         this.note = note;
         this.ticketType = ticketType;
@@ -126,7 +125,7 @@ public class Ticket {
         this.lastModified = lastModified;
     }
     
-    public int getEmployee_id() {
+    public int getEmployeeId() {
         return employeeId;
     }
 

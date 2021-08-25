@@ -26,7 +26,7 @@ public class TicketController {
     private static final Logger LOGGER = LogManager.getLogger(TicketController.class);
 
 
-    @CrossOrigin(origins="http://localhost:56648")
+    @CrossOrigin(origins="http://localhost:4200")
     @GetMapping
     public List<Ticket> getAllTickets() {
        LOGGER.info("Fetching all Tickets");
@@ -58,6 +58,7 @@ public class TicketController {
 //
 //    }
     
+    @CrossOrigin(origins="http://localhost:4200")
     @PostMapping(consumes="application/json", produces="application/json")
 	public Ticket create(@RequestBody Ticket t) {
 		return ticketManager.create(t);
