@@ -7,6 +7,7 @@ import { TicketComponent } from './ticket/ticket.component';
 import { TicketDetailComponent } from './ticket-detail/ticket-detail.component';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { SubmitTicketComponent } from './submit-ticket/submit-ticket.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { SubmitTicketComponent } from './submit-ticket/submit-ticket.component';
     AppComponent,
     TicketComponent,
     TicketDetailComponent,
-    SubmitTicketComponent
+    SubmitTicketComponent,
+    LoginComponent
     ],
   imports: [
     // declare your imported modules here

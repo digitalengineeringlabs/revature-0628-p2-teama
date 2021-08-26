@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SubmitTicketComponent } from './submit-ticket/submit-ticket.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { TicketDetailComponent } from './ticket-detail/ticket-detail.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
@@ -10,7 +11,8 @@ const routes: Routes = [
   {path: '' , redirectTo: '/ticket', pathMatch: 'full'},
   { path: 'submitTicket', component: SubmitTicketComponent },
   {path: 'ticket', component:TicketComponent},
-  {path: 'ticket/:ticket_id', component:TicketDetailComponent}
+  {path: 'ticket/:ticket_id', component:TicketDetailComponent},
+  {path: 'login', component:LoginComponent}
 
 ];
 

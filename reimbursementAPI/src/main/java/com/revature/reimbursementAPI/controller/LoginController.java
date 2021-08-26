@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +24,7 @@ public class LoginController {
 //	@Autowired
 //	private EmployeeManager er;
 
-	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping(consumes="application/json", produces="application/json")
 	public Employee findbyUsernameAndPassword(@RequestBody Employee e) {
 		System.out.println();
@@ -35,6 +36,7 @@ public class LoginController {
 //		return manager.findAll();
 //	}
 
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping(path="/r", consumes="application/json", produces="application/json")
 	public Employee create(@Valid @RequestBody Employee emp) {
 		System.out.println("new user created!");
