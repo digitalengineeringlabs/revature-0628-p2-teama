@@ -1,0 +1,24 @@
+<ul class="tickets">
+    <li *ngFor="let ticket of tickets">
+        {{ticket.ticketType}}
+        <span class="tick">{{ticket.note}}</span> 
+        {{ticket.amount | currency}} 
+        {{ticket.status}} 
+        {{ticket.dateMade | date}}
+    </li>
+  </ul>
+
+  <div>
+    <label for="new-type">Type: </label>
+    <input id="new-type"  #ticketType />
+    <label for="new-note">Note: </label>
+    <input id="new-note" #ticketNote />
+    <label for="new-ammount">Amount: </label>
+    <input id="new-amount"  #ticketAmount />
+  
+    
+    <button class="add-ticket" (click)="add(ticketType.value, ticketNote.value, ticketAmount.value);
+    ticketType.value=''; ticketNote.value=''; ticketAmount.value='';">
+      Add Ticket
+    </button>
+  </div>

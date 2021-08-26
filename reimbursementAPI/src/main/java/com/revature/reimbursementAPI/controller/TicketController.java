@@ -23,7 +23,8 @@ public class TicketController {
     
     private static final Logger LOGGER = LogManager.getLogger(TicketController.class);
 
- 
+
+    @CrossOrigin(origins="http://localhost:4200")
     @GetMapping
     public ResponseEntity<List<Ticket>> getAllTickets(@RequestParam(required = false) TicketStatus status) {
         LOGGER.info("Fetching all Tickets");
@@ -40,7 +41,29 @@ public class TicketController {
     public List<Ticket> getTicketsByEmployee(@PathVariable Integer employeeId) {
         return ticketManager.findByEmployeeId(employeeId);
     }
-  
+
+    
+//    @GetMapping(path="/getTicket", produces="application/json")
+//    public Ticket getTicket(int id) {
+//        return ticketManager.getTicketById(ticketManager.get());
+//    }
+
+    
+//    @PostMapping
+//    public ResponseEntity<Ticket> saveTicket(@RequestBody Ticket ticket) {
+//        Ticket ticket1 = ticketManager.insert(ticket);
+//        HttpHeaders httpHeaders = new HttpHeaders();
+//        httpHeaders.add("ticket", "/ticket" + ticket1.getTicket_id().toString());
+//        return new ResponseEntity<>(ticket1, httpHeaders, HttpStatus.CREATED);
+//
+//    }
+    
+    @CrossOrigin(origins="http://localhost:4200")
+    @PostMapping(consumes="application/json", produces="application/json")
+	public Ticket create(@RequestBody Ticket t) {
+		return ticketManager.create(t);
+	}
+
     @DeleteMapping({"/delete/{ticketId}"})
     public ResponseEntity<Ticket> deleteTicket(@PathVariable("ticketId") Integer ticketId) {
         LOGGER.info(MessageFormat.format("Calling delete method on ticket id: {0}", ticketId));

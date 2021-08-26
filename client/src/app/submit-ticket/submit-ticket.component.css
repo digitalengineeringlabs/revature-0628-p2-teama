@@ -1,0 +1,77 @@
+
+
+.submit-ticket {
+    color: #EEEEEE;
+    width: 20rem;
+    padding: 1rem;
+    display: flex;
+    
+    flex-direction:column;
+    justify-content: center;
+    align-self:center;
+
+    align-items: center;
+    border: solid 1px;
+    margin:auto;
+    border-radius: 5px;
+
+    background-color: #222831;
+   
+    
+}
+
+.new-ticket {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#note {
+    padding-bottom: 50px;
+}
+
+.desc {
+    width: 300px;
+    text-align: center;
+}
+
+input {
+    background-color: #393E46;
+    border-radius: 5px;
+    padding:10px;
+    border: transparent;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    
+}
+
+input:focus {
+    outline: none !important;
+    color:#00ADB5;
+    outline-style: solid #00ADB5;
+   
+}
+
+textarea:focus {
+    outline: none !important;
+    border-color: #719ECE;
+    box-shadow: 0 0 10px #719ECE;
+}
+
+
+button {
+    color: #EEEEEE !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: #222831;
+	padding: 20px;
+	border: 4px solid #00ADB5 !important;
+	display: inline-block;
+	transition: all 0.4s ease 0s;
+}
+
+
+button:hover {
+	color: #ffffff !important;
+	background: #00ADB5;
+	border-color: #00ADB5 !important;
+	transition: all 0.4s ease 0s;
+}

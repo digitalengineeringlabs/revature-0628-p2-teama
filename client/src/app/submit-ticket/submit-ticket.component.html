@@ -1,0 +1,30 @@
+
+
+
+<div class="submit-ticket">
+    <h3>Ticket Submission</h3>
+    <p class="desc">Create a new ticket by writing down the type of reimbursement, any notes you have to add, and the amount it cost</p>
+    <label class="ticket-label" for="new-ticket">Type: </label>
+    <input class="new-ticket" id="new-ticket"  #ticketType />
+    <label class="ticket-label" for="new-ticket">Note: </label>
+    <input class="new-ticket"  id="note" #ticketNote />
+    <label class="ticket-label" for="new-ticket">Amount: </label>
+    <input class="new-ticket" id="new-ticket"  #ticketAmount />
+  
+    
+    <button class="add-ticket" (click)="add(ticketType.value, ticketNote.value, ticketAmount.value);
+    ticketType.value=''; ticketNote.value=''; ticketAmount.value='';">
+      Add Ticket
+</button>
+
+
+  </div>
+
+  <!--<div class="row"  *ngIf="showMsg">
+    <div class="col-xs-12">
+      <p class="alert alert-success">
+          <strong>Ticket Sumbitted! Your finanace manager should approve or deny your request soon</strong> 
+
+      </p>
+    </div>
+  </div>-->

@@ -9,10 +9,10 @@ public interface TicketManager {
     
     List<Ticket> getTickets(TicketStatus filter);
 
+    List<Ticket> getTickets();
+
     Ticket getTicketById(Integer id);
     
-    
-
     Ticket insert(Ticket ticket);
 
     Ticket updateTicket(Ticket ticket);
@@ -23,6 +23,7 @@ public interface TicketManager {
 
 
 	List<Ticket> findByEmployeeId(Integer employeeId);
+	void updateTicket(Integer id, Ticket ticket);
 
 	
 }

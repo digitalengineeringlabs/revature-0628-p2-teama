@@ -8,7 +8,9 @@ import javax.persistence.*;
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int employee_id;
+
+    private Integer employee_id;
+
 
     @Column(name="first_name")
 	private String firstName;
@@ -61,6 +63,7 @@ public class Employee {
 		return employee_id;
 	}
 
+
 	public void setEmployee_id(int employee_id) {
 		this.employee_id = employee_id;
 	}
@@ -87,6 +90,7 @@ public class Employee {
 
 	public void setRole(String role) {
 		this.role = role;
+
 	}
 
 		@Override
