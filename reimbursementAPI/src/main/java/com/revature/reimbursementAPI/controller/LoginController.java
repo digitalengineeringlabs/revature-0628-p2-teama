@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.reimbursementAPI.manager.LoginManager;
 import com.revature.reimbursementAPI.model.Employee;
 
+@CrossOrigin(origins = "htpp://localhost:4200/")
 @RestController
 @RequestMapping(path="/login")
 public class LoginController {
@@ -26,7 +28,7 @@ public class LoginController {
 	
 	@PostMapping(consumes="application/json", produces="application/json")
 	public Employee findbyUsernameAndPassword(@RequestBody Employee e) {
-		System.out.println();
+		System.out.println("success");
 		return manager.findByUsernameAndPassword(e.getUsername(), e.getPassword());
 	}
 
