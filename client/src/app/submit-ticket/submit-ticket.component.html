@@ -2,6 +2,24 @@
 
 
 <div class="submit-ticket">
+
+  <div class="row"  *ngIf="errors">
+    <div class="col-xs-12">
+      <p class="alert alert-fail">
+          <strong>Submission Failure! </strong>Please make sure you have all the fields filled out correctly
+
+      </p>
+    </div>
+  </div>
+
+  <div class="row"  *ngIf="success">
+    <div class="col-xs-12">
+      <p class="alert alert-fail">
+          <strong>Submission Success! </strong>
+
+      </p>
+    </div>
+  </div>
     <h3>Ticket Submission</h3>
     <p class="desc">Create a new ticket by writing down the type of reimbursement, any notes you have to add, and the amount it cost</p>
     <label class="ticket-label" for="new-ticket">Type: </label>
@@ -10,8 +28,10 @@
     <input class="new-ticket"  id="note" #ticketNote />
     <label class="ticket-label" for="new-ticket">Amount: </label>
     <input class="new-ticket" id="new-ticket"  #ticketAmount />
-  
     
+    
+    
+
     <button class="add-ticket" (click)="add(ticketType.value, ticketNote.value, ticketAmount.value);
     ticketType.value=''; ticketNote.value=''; ticketAmount.value='';">
       Add Ticket
