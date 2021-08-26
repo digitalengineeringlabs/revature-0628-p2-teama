@@ -74,6 +74,12 @@ public class TicketManagerImpl implements TicketManager{
 	
 	}
 
+//	@Override
+//	public List<Ticket> getTickets() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
 
     // create ticket
 
