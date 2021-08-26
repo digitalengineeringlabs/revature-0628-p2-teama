@@ -1,0 +1,13 @@
+<head class = "text-center">
+    <div >
+        <h5>Please Login</h5>
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <p><input type="text" name="username" ngModel></p>
+        <p><input type="password" name="password" ngModel></p>
+        <button type="submit">Login</button>
+        </form>
+    </div>
+</head>
+<body>
+</body>
+<router-outlet></router-outlet>
