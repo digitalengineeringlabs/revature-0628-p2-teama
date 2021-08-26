@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer employee_id;
 
     @Column(name="first_name")
 	private String firstName;
@@ -56,17 +56,17 @@ public class Employee {
 	}
 
 	public Integer getId() {
-		return id;
+		return employee_id;
 	}
 
 	public void setId(Integer id) {
-		this.id = id;
+		this.employee_id = id;
 	}
 
 	 
 	    @Override
 	    public String toString() {
-	        return "User [id=" + id + ", username=" + username + ", password=" + password + "]";
+	        return "User [id=" + employee_id + ", username=" + username + ", password=" + password + "]";
 	    }
 
 }
