@@ -23,7 +23,10 @@ export class TicketService {
 
   
 addTicket(ticket: Ticket): Observable<Ticket> {
-  return this.http.post<Ticket>(this.getTicketUrl, ticket, this.httpOptions);
+  return this.http.post<Ticket>(this.getTicketUrl, ticket, this.httpOptions)
+  //.pipe(
+    //catchError(this.catchError('addTicket', ticket))
+  //);
 }
 
   constructor(private http: HttpClient) { }
