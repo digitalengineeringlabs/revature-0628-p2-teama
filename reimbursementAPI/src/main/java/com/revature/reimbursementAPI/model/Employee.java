@@ -10,6 +10,7 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer employee_id;
 
+
     @Column(name="first_name")
 	private String firstName;
     @Column(name="last_name")
@@ -26,6 +27,7 @@ public class Employee {
 	}
 
 	public Employee(String firstName, String lastName, String username, String password, String role) {
+		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.username = username;
@@ -33,11 +35,12 @@ public class Employee {
 		this.role = role;
 	}
 
-	public Employee(String username, String password) {
-		super();
-		this.username = username;
-		this.password = password;
-	}
+//	public Employee(String username, String password, String role) {
+//		super();
+//		this.username = username;
+//		this.password = password;
+//		this.role = role;
+//	}
 
 	public String getUsername() {
 		return username;
@@ -55,16 +58,41 @@ public class Employee {
 		this.password = password;
 	}
 
-	public Integer getId() {
+	public Integer getEmployee_id() {
 		return employee_id;
 	}
 
-	public void setId(Integer id) {
-		this.employee_id = id;
+
+	public void setEmployee_id(int employee_id) {
+		this.employee_id = employee_id;
+	}
+	
+	    public String getFirstName() {
+		return firstName;
 	}
 
-	 
-	    @Override
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+
+	}
+
+		@Override
 	    public String toString() {
 	        return "User [id=" + employee_id + ", username=" + username + ", password=" + password + "]";
 	    }

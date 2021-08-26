@@ -6,20 +6,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { TicketDetailComponent } from './ticket-detail/ticket-detail.component';
+import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+import { SubmitTicketComponent } from './submit-ticket/submit-ticket.component';
+import { TicketsComponent } from './tickets/tickets.component';
 
 @NgModule({
   declarations: [
     // declare all your components here
     AppComponent,
     TicketComponent,
-    TicketDetailComponent
-  ],
+    TicketDetailComponent,
+    SubmitTicketComponent,
+    TicketsComponent
+    ],
   imports: [
     // declare your imported modules here
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
-  ],
+    HttpClientModule,
+    FormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })

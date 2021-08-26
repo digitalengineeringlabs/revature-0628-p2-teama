@@ -1,0 +1,21 @@
+
+<select (change)="filterList()" [(ngModel)]="selectedOption">
+  <option [ngValue]="o" *ngFor="let o of options">{{o}}</option>
+</select>
+
+<ul class="tickets">
+    <li *ngFor="let ticket of filteredTickets">
+        {{ticket.ticketType}}
+        <span class="tick">{{ticket.note}}</span> 
+        {{ticket.amount | currency}} 
+        {{ticket.status}} 
+        {{ticket.dateMade | date}}
+
+        <button (click)="updateTicket(ticket, 'approved')" *ngIf="(ticket.status !== 'approved' && ticket.status !== 'rejected')">Approve</button>
+        <button (click)="updateTicket(ticket, 'rejected')" *ngIf="(ticket.status !== 'approved' && ticket.status !== 'rejected')">Reject</button>
+
+
+    </li>
+  </ul>
+
+  
