@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+/*import { Component, OnInit } from '@angular/core';
 import { TicketService } from '../ticket.service';
 import { Ticket } from '../tickets';
 
@@ -22,8 +22,6 @@ export class TicketsComponent implements OnInit {
     "Rejected"
   ];
   selectedOption: string = "All";
-
-
 
   constructor(private ticketService: TicketService) { }
 
@@ -65,3 +63,4 @@ export class TicketsComponent implements OnInit {
   }
 
 }
+*/

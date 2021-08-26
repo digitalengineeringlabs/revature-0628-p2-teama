@@ -1,3 +1,7 @@
+<select (change)="filterList()" [(ngModel)]="selectedOption">
+    <option [ngValue]="o" *ngFor="let o of options">{{o}}</option>
+  </select>
+
 <div clas = "container">
     <div class = "card">
         <h3 class="text-center"> All Tickets </h3>
@@ -16,15 +20,17 @@
                 </thead>
                 <tbody>
                     <!-- *ngFor directive-->
-                    <tr *ngFor = "let ticket of tickets">
+                    <tr *ngFor = "let ticket of filteredTickets">
                         <td>{{ ticket.ticket_id }}</td>
                         <td>{{ ticket.status }}</td>
                         <td>{{ ticket.ticketType }}</td>
                         <td>{{ ticket.amount | currency}}</td>
-                        <td>{{ ticket.employee_id}}</td>
+                        <td>{{ ticket.employeeId}}</td>
                         <td>{{ ticket.dateMade | date }}</td>
                         <td>{{ ticket.dateResolved | date }}</td>
                         <td>{{ ticket.note }}</td>
+                        <td><button (click)="updateTicket(ticket, 'approved')" *ngIf="(ticket.status !== 'approved' && ticket.status !== 'rejected')">Approve</button></td>
+                        <td><button (click)="updateTicket(ticket, 'rejected')" *ngIf="(ticket.status !== 'approved' && ticket.status !== 'rejected')">Reject</button></td>
                         <dt><a routerLink="{{ticket.ticket_id}}" routerLinkActive="active-link">Details</a></dt>
                     </tr>
                 </tbody>

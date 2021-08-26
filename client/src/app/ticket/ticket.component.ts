@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TicketService } from '../ticket.service';
-import { Ticket } from '../ticket';
-
-
+import { Ticket } from '../tickets';
 
 @Component({
   selector: 'app-ticket',
@@ -12,13 +10,40 @@ import { Ticket } from '../ticket';
 export class TicketComponent implements OnInit {
 
   tickets: Ticket[] = [];
-
+  filteredTickets: Ticket[] = [];
+  status = "pending";
+  options: string[] = [
+    "All",
+    "Pending",
+    "Approved",
+    "Rejected"
+  ];
+  selectedOption: string = "All";
 
   constructor(private ticketService: TicketService) { }
 
   ngOnInit(): void {
-    this.ticketService.getAllTickets()
-    .subscribe(tickets => this.tickets = tickets)
+    this.getTickets();
   }
+
+getTickets() {
+  this.ticketService.getAllTickets()
+    .subscribe(tickets => this.tickets = tickets)
+}
+
+  updateTicket(ticket:Ticket,  status:string): void {
+    ticket.status = status;
+     this.ticketService.updateTicket(ticket)
+       .subscribe(() => this.filterList());
+   }
+ 
+   filterList(): void {
+     if (this.selectedOption == "All") {
+       this.filteredTickets = this.tickets;
+     } else {
+       let option = this.selectedOption.toLowerCase();
+       this.filteredTickets = this.tickets.filter(t => t.status == option);
+     }
+   }
 
 }

@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { TicketService } from '../ticket.service';
-import { Ticket } from '../ticket';
+import { Ticket } from '../tickets';
 
 @Component({
   selector: 'app-ticket-detail',
@@ -18,10 +18,10 @@ export class TicketDetailComponent implements OnInit {
     status: '',
     note: '',
     ticketType: '',
-    amount: 0,
+    amount: "0",
     dateMade: undefined,
     dateResolved: undefined,
-    employee_id: 0
+    employeeId: 0
   };
   
   
