@@ -63,7 +63,6 @@ public class Employee {
 	}
 
 
-
 	public void setEmployee_id(int employee_id) {
 		this.employee_id = employee_id;
 	}

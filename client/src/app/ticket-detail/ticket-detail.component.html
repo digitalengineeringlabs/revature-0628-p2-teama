@@ -1,0 +1,13 @@
+<h2 class = "text-center">Ticket Details</h2>
+<ul class = "text-center list-group">
+    <li class="list-group-item">Id: {{ticket.ticket_id}}</li>
+    <li class="list-group-item">Status: {{ticket.status}}</li>
+    <li class="list-group-item">Type: {{ticket.ticketType}}</li>
+    <li class="list-group-item">Amount: {{ticket.amount | currency }}</li>
+    <li class="list-group-item">Date Submitted: {{ticket.dateMade | date }}</li>
+    <li class="list-group-item">Last Updated: {{ticket.dateResolved | date }}</li>
+    <li class="list-group-item">Note: {{ticket.note}}</li>
+</ul>
+<div class="mx-auto" style="width: 200px">
+    <button (click)="goBack()" type="button" class="btn btn-primary btn-block">    Back    </button>
+</div>
