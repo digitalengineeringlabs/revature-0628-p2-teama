@@ -8,7 +8,6 @@ import javax.persistence.*;
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Integer employee_id;
 
 
@@ -62,6 +61,7 @@ public class Employee {
 	public Integer getEmployee_id() {
 		return employee_id;
 	}
+
 
 
 	public void setEmployee_id(int employee_id) {

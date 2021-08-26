@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.MessageFormat;
 import java.util.List;
 
 @RestController
@@ -20,9 +21,8 @@ public class TicketController {
 
 	@Autowired
     private TicketManager ticketManager;
-    
+  
     private static final Logger LOGGER = LogManager.getLogger(TicketController.class);
-
 
     @CrossOrigin(origins="http://localhost:4200")
     @GetMapping
@@ -58,10 +58,11 @@ public class TicketController {
 //
 //    }
     
+
     @CrossOrigin(origins="http://localhost:4200")
     @PostMapping(consumes="application/json", produces="application/json")
-	public Ticket create(@RequestBody Ticket t) {
-		return ticketManager.create(t);
+	    public Ticket create(@RequestBody Ticket t) {
+		  return ticketManager.create(t);
 	}
 
     @DeleteMapping({"/delete/{ticketId}"})
@@ -71,13 +72,12 @@ public class TicketController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    
+    @CrossOrigin(origins="http://localhost:4200")
     @PostMapping(consumes="application/json", produces="application/json")
 	  public Ticket create(@RequestBody Ticket t) {
     	if (t.getTicket_id() != null) {
     		return ticketManager.updateTicket(t);
     	}
-    	
     	return ticketManager.create(t);
     	
 	}
