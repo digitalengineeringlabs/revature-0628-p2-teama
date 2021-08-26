@@ -12,8 +12,14 @@ public class ReimbursementApiApplication {
 	private static final Logger LOGGER = LogManager.getLogger(ReimbursementApiApplication.class);
 
 	public static void main(String[] args) {
-		SpringApplication.run(ReimbursementApiApplication.class, args);
-		LOGGER.info("app running");
+		try {
+
+			SpringApplication.run(ReimbursementApiApplication.class, args);
+			LOGGER.info("app running");
+		}
+		catch (Exception ex) {
+			throw ex;
+		}
 	}
 
 }

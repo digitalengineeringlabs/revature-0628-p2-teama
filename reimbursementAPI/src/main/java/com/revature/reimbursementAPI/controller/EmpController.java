@@ -31,7 +31,7 @@ public class EmpController {
 		return manager.findById(id);
 	}
 
-	@PostMapping(consumes="application/json", produces="application/json")
+	@PostMapping( consumes="application/json", produces="application/json")
 	public Employee create(@RequestBody Employee employee){
 		return manager.create(employee);
 	}

@@ -8,6 +8,7 @@ import com.revature.reimbursementAPI.model.TicketStatus;
 public interface TicketManager {
     
     List<Ticket> getTickets(TicketStatus filter);
+
     List<Ticket> getTickets();
 
     Ticket getTicketById(Integer id);

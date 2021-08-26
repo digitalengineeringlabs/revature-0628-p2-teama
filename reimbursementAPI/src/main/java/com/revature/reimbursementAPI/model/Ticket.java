@@ -66,7 +66,6 @@ public class Ticket {
         this.dateMade = dateMade;
         this.lastModified = lastModified;
         this.employeeId = employeeId;
-
     }
 
     public Integer getTicket_id() {
@@ -131,5 +130,6 @@ public class Ticket {
 
     public void setEmployee_id(int employeeId) {
         this.employeeId = employeeId;
+
     }
 }

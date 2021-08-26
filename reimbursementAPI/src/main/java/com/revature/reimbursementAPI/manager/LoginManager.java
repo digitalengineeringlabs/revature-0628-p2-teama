@@ -8,7 +8,7 @@ import com.revature.reimbursementAPI.model.Employee;
 
 public interface LoginManager{
 
-	Employee findbyUsernameAndPassword(String username, String password);
+	Employee findByUsernameAndPassword(String username, String password);
 
 //	public Employee findByUsername(String username);
 	
