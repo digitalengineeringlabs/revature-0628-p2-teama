@@ -10,11 +10,7 @@ import { AuthGuard } from './Login/auth.guard';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 
-const routes:Routes = [
-  { path: 'login', component: LoginComponent, canActivate: [AuthGuard], children: 
-  [{ path: 'employee', component: EmployeeComponent}]},
-  
-]
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,8 +24,7 @@ const routes:Routes = [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule, 
-    FormsModule,
-    RouterModule.forRoot(routes)
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
