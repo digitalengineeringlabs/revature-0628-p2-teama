@@ -2,42 +2,40 @@ package com.revature.reimbursementAPI.controller;
 
 
 import com.revature.reimbursementAPI.manager.TicketManager;
-import com.revature.reimbursementAPI.manager.TicketManagerImpl;
 import com.revature.reimbursementAPI.model.Ticket;
+import com.revature.reimbursementAPI.model.TicketStatus;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.MessageFormat;
 import java.util.List;
 
 @RestController
 @RequestMapping("/ticket")
 public class TicketController {
 
-
 	@Autowired
     private TicketManager ticketManager;
     
     private static final Logger LOGGER = LogManager.getLogger(TicketController.class);
 
-
     @CrossOrigin(origins="http://localhost:4200")
     @GetMapping
-    public List<Ticket> getAllTickets() {
-       LOGGER.info("Fetching all Tickets");
-       return ticketManager.getTickets();
+    public ResponseEntity<List<Ticket>> getAllTickets(@RequestParam(required = false) TicketStatus status) {
+        LOGGER.info("Fetching all Tickets");
+        List<Ticket> tickets = ticketManager.getTickets(status);
+        return new ResponseEntity<>(tickets, HttpStatus.OK);
     }
 
     @GetMapping(path="/{ticketId}", produces="application/json")
     public Ticket getTicket(@PathVariable Integer ticketId) {
         return ticketManager.getTicketById(ticketId);
     }
-    
+
     @GetMapping(path="/e/{employeeId}", produces="application/json")
     public List<Ticket> getTicketsByEmployee(@PathVariable Integer employeeId) {
         return ticketManager.findByEmployeeId(employeeId);
@@ -63,7 +61,6 @@ public class TicketController {
 	public Ticket create(@RequestBody Ticket t) {
 		return ticketManager.create(t);
 	}
-
     @DeleteMapping({"/delete/{ticketId}"})
     public ResponseEntity<Ticket> deleteTicket(@PathVariable("ticketId") Integer ticketId) {
         LOGGER.info(MessageFormat.format("Calling delete method on ticket id: {0}", ticketId));
@@ -71,4 +68,14 @@ public class TicketController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    
+    @PostMapping(consumes="application/json", produces="application/json")
+	  public Ticket create(@RequestBody Ticket t) {
+    	if (t.getTicket_id() != null) {
+    		return ticketManager.updateTicket(t);
+    	}
+    	
+    	return ticketManager.create(t);
+    	
+	}
 }
