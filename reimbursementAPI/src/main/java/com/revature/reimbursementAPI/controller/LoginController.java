@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.reimbursementAPI.manager.LoginManager;
 import com.revature.reimbursementAPI.model.Employee;
 
-@CrossOrigin(origins = "htpp://localhost:4200/")
+//@CrossOrigin(origins = "htpp://localhost:4200/")
 @RestController
 @RequestMapping(path="/login")
 public class LoginController {
