@@ -9,6 +9,8 @@ public interface TicketManager {
     
     List<Ticket> getTickets(TicketStatus filter);
 
+    List<Ticket> getTickets();
+
     Ticket getTicketById(Integer id);
     
     Ticket insert(Ticket ticket);

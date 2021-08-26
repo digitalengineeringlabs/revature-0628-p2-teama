@@ -21,7 +21,7 @@ public class TicketController {
 
 	@Autowired
     private TicketManager ticketManager;
-    
+  
     private static final Logger LOGGER = LogManager.getLogger(TicketController.class);
 
     @CrossOrigin(origins="http://localhost:4200")
@@ -41,6 +41,7 @@ public class TicketController {
     public List<Ticket> getTicketsByEmployee(@PathVariable Integer employeeId) {
         return ticketManager.findByEmployeeId(employeeId);
     }
+
     
 //    @GetMapping(path="/getTicket", produces="application/json")
 //    public Ticket getTicket(int id) {
@@ -57,8 +58,13 @@ public class TicketController {
 //
 //    }
     
-    
-    
+
+    @CrossOrigin(origins="http://localhost:4200")
+    @PostMapping(consumes="application/json", produces="application/json")
+	    public Ticket create(@RequestBody Ticket t) {
+		  return ticketManager.create(t);
+	}
+
     @DeleteMapping({"/delete/{ticketId}"})
     public ResponseEntity<Ticket> deleteTicket(@PathVariable("ticketId") Integer ticketId) {
         LOGGER.info(MessageFormat.format("Calling delete method on ticket id: {0}", ticketId));

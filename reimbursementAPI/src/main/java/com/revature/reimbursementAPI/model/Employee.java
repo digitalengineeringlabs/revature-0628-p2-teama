@@ -10,6 +10,7 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer employee_id;
 
+
     @Column(name="first_name")
 	private String firstName;
     @Column(name="last_name")
@@ -61,7 +62,9 @@ public class Employee {
 		return employee_id;
 	}
 
-	public void setEmployee_id(Integer employee_id) {
+
+
+	public void setEmployee_id(int employee_id) {
 		this.employee_id = employee_id;
 	}
 	
@@ -87,6 +90,7 @@ public class Employee {
 
 	public void setRole(String role) {
 		this.role = role;
+
 	}
 
 		@Override
