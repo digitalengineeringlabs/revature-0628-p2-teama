@@ -14,16 +14,25 @@ export class LoginComponent {
 
   login: Login[] = [];
 
+  success = "";
 
-  constructor(private http:HttpClient,private router:Router) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
 
     ngOnInit(): void {
 
     }
 
-    
-      
+    onSubmit(form:NgForm) {
+    /*loginForm(login:Login,  username:string, password:string): void {*/
+       this.loginService.login(JSON.stringify({username:form.value.username,password:form.value.password}))
+         .subscribe(user => 
+          console.log("success")
+          //this.router.navigate([''])
+        );
+     }
+    }
+      /*
       onSubmit(form:NgForm){
         console.log(form);
         this.http.post('http://localhost:8080/login',
@@ -37,7 +46,7 @@ export class LoginComponent {
                 }
             })
     }
-  }
+  }*/
 
           
 

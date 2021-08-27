@@ -12,7 +12,8 @@ export class SubmitTicketComponent implements OnInit {
 
   tickets: Ticket[] = [];
   showMsg: boolean = false;
-
+  errors = "";
+  success = "";
 
 
   constructor(private ticketService: TicketService) { }
@@ -24,8 +25,15 @@ export class SubmitTicketComponent implements OnInit {
     this.ticketService.addTicket({ ticketType, note, amount, "status": "pending", "employeeId": 1 } as Ticket)
       .subscribe(ticket => {
         this.tickets.push(ticket);
+        this.errors = "";
+        this.success = "success!"
         
-      });
+      },
+        error => {
+          this.errors = error;
+          
+        }
+      );
   }
 
 
