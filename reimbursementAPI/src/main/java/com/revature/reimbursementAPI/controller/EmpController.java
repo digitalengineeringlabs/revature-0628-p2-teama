@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,30 +15,47 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.reimbursementAPI.manager.EmployeeManager;
 import com.revature.reimbursementAPI.model.Employee;
 
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping(path="/employees")
+@RequestMapping(path="/employee")
 public class EmpController {
 
 	@Autowired
 	private EmployeeManager manager;
+	
+	private List<Employee> employees = manager.findAll();
 
-	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping(produces="application/json")
 	public List<Employee> getAllEmployees(){
 		return manager.findAll();
+
+	}
+	
+	
+
+	@DeleteMapping(path = { "/{id}"})
+	public Employee delete(@PathVariable("id") int id) {
+			Employee deletedEmp = null;
+			for (Employee emp : employees) {
+				if (emp.getEmployee_id().equals(id)) {
+					employees.remove(emp);
+					deletedEmp = emp;
+					break;
+				}
+			}
+			return deletedEmp;
 	}
 
-	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping(path="/{id}", produces="application/json")
-	public Employee getEmployee(@PathVariable int id){
-		return manager.findById(id);
-	}
-
-	@CrossOrigin(origins = "http://localhost:4200")
-	@PostMapping( consumes="application/json", produces="application/json")
-	public Employee create(@RequestBody Employee employee){
-		return manager.create(employee);
+//	@GetMapping(path="/{id}", produces="application/json")
+//	public Employee getEmployee(@PathVariable int id){
+//		return manager.findById(id);
+//	}
+//
+	@PostMapping(consumes="application/json", produces="application/json")
+	public Employee create(@RequestBody Employee emp){
+		employees.add(emp);
+		System.out.println(employees);
+		return emp;
 	}
 
 }

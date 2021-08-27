@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.reimbursementAPI.manager.LoginManager;
 import com.revature.reimbursementAPI.model.Employee;
 
+
 @RestController
 @RequestMapping(path="/login")
 public class LoginController {
@@ -21,13 +22,11 @@ public class LoginController {
 	@Autowired
 	private LoginManager manager;
 
-//	@Autowired
-//	private EmployeeManager er;
 
 	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping(consumes="application/json", produces="application/json")
 	public Employee findbyUsernameAndPassword(@RequestBody Employee e) {
-		System.out.println();
+		System.out.println("success");
 		return manager.findByUsernameAndPassword(e.getUsername(), e.getPassword());
 	}
 

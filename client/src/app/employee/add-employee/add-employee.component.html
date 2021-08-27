@@ -1,0 +1,37 @@
+<div class="col-md-6">
+    <h2 class="text-center">Add Employee</h2>
+    <form>
+      <div class="form-group">
+        <label for="firstname">First Name:</label>
+        <input type="firstname" [(ngModel)]="user.firstname" placeholder="First Name" name="firstname" class="form-control" id="firstname">
+      </div>
+
+      <div class="form-group">
+        <label for="lastname">Last Name:</label>
+        <input type="lastname" [(ngModel)]="user.lastname" placeholder="Last Name" name="lastname" class="form-control" id="lastname">
+      </div>
+    
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input [(ngModel)]="user.username" placeholder="Username" name="username" class="form-control" id="username">
+      </div>
+    
+      <div class="form-group">
+        <label for="empId">Employee Id</label>
+        <input [(ngModel)]="employee.empId" placeholder="Employee Id" name="Employee Id" class="form-control" id="employeeid">
+      </div>
+
+      <div class="form-group">
+        <label for="password">First Name:</label>
+        <input type="password" [(ngModel)]="employee.password" placeholder="password" name="password" class="form-control" id="password">
+      </div>
+
+      <div class="form-group">
+        <label for="role">role:</label>
+        <input type="role" [(ngModel)]="employee.role" placeholder="role" name="role" class="form-control" id="role">
+      </div>
+    
+      <button class="btn btn-success" (click)="createEmployee()">Create</button>
+    </form>
+    </div>
+        
