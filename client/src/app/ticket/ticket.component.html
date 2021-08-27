@@ -32,8 +32,8 @@
                         <td>{{ ticket.lastModified | date }}</td>
                         <td>{{ ticket.note }}</td>
                         <td><a routerLink="{{ticket.ticket_id}}" routerLinkActive="active-link">Details</a></td>
-                        <td><button (click)="updateTicket(ticket, 'approved')" *ngIf="(ticket.status !== 'approved' && ticket.status !== 'rejected')">Approve</button></td>
-                        <td><button (click)="updateTicket(ticket, 'rejected')" *ngIf="(ticket.status !== 'approved' && ticket.status !== 'rejected')">Reject</button></td>
+                        <td><button class="btn btn-block btn-primary" (click)="updateTicket(ticket, 'approved')" *ngIf="(ticket.status !== 'approved' && ticket.status !== 'rejected')">Approve</button></td>
+                        <td><button class="btn btn-block btn-primary" (click)="updateTicket(ticket, 'rejected')" *ngIf="(ticket.status !== 'approved' && ticket.status !== 'rejected')">Reject</button></td>
                     </tr>
                 </tbody>
             </table>
