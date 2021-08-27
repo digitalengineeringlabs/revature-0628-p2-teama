@@ -12,11 +12,13 @@
                     <th>Status</th>
                     <th>Type</th>
                     <th>Amount</th>
-                    <th>empId</th>
+                    <th>Employee Id</th>
                     <th>Submitted</th>
                     <th>Updated</th>
                     <th>Note</th>
                     <th>View</th>
+                    <th></th>
+                    <th></th>
                 </thead>
                 <tbody>
                     <!-- *ngFor directive-->
@@ -27,11 +29,11 @@
                         <td>{{ ticket.amount | currency}}</td>
                         <td>{{ ticket.employeeId}}</td>
                         <td>{{ ticket.dateMade | date }}</td>
-                        <td>{{ ticket.dateResolved | date }}</td>
+                        <td>{{ ticket.lastModified | date }}</td>
                         <td>{{ ticket.note }}</td>
+                        <td><a routerLink="{{ticket.ticket_id}}" routerLinkActive="active-link">Details</a></td>
                         <td><button (click)="updateTicket(ticket, 'approved')" *ngIf="(ticket.status !== 'approved' && ticket.status !== 'rejected')">Approve</button></td>
                         <td><button (click)="updateTicket(ticket, 'rejected')" *ngIf="(ticket.status !== 'approved' && ticket.status !== 'rejected')">Reject</button></td>
-                        <dt><a routerLink="{{ticket.ticket_id}}" routerLinkActive="active-link">Details</a></dt>
                     </tr>
                 </tbody>
             </table>

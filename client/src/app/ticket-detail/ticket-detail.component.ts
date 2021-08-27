@@ -20,7 +20,7 @@ export class TicketDetailComponent implements OnInit {
     ticketType: '',
     amount: "0",
     dateMade: undefined,
-    dateResolved: undefined,
+    lastModified: undefined,
     employeeId: 0
   };
   

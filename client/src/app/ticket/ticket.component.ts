@@ -28,11 +28,15 @@ export class TicketComponent implements OnInit {
 
 getTickets() {
   this.ticketService.getAllTickets()
-    .subscribe(tickets => this.tickets = tickets)
+    .subscribe(tickets => {
+      this.tickets = tickets;
+      this.filterList();
+    })
 }
 
   updateTicket(ticket:Ticket,  status:string): void {
     ticket.status = status;
+    ticket.lastModified = new Date();
      this.ticketService.updateTicket(ticket)
        .subscribe(() => this.filterList());
    }

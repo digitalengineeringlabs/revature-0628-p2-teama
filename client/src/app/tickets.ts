@@ -5,6 +5,6 @@ export interface Ticket {
     ticketType: string;
     amount: string;
     dateMade: Date | undefined;
-    dateResolved: Date | undefined;
+    lastModified: Date | undefined;
     employeeId: number;
 }
