@@ -24,6 +24,7 @@ public class LoginController {
 //	@Autowired
 //	private EmployeeManager er;
 
+	
 	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping(consumes="application/json", produces="application/json")
 	public Employee findbyUsernameAndPassword(@RequestBody Employee e) {
