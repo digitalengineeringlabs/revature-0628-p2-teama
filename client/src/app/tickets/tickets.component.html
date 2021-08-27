@@ -11,7 +11,7 @@
         {{ticket.status}} 
         {{ticket.dateMade | date}}
 
-        <button (click)="updateTicket(ticket, 'approved')" *ngIf="(ticket.status !== 'approved' && ticket.status !== 'rejected')">Approve</button>
+        <button  (click)="updateTicket(ticket, 'approved')" *ngIf="(ticket.status !== 'approved' && ticket.status !== 'rejected')">Approve</button>
         <button (click)="updateTicket(ticket, 'rejected')" *ngIf="(ticket.status !== 'approved' && ticket.status !== 'rejected')">Reject</button>
 
 
