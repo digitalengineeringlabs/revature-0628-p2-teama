@@ -11,9 +11,9 @@ public class Employee {
     private Integer employee_id;
 
 
-    @Column(name="first_name")
+    @Column(name="f_name")
 	private String firstName;
-    @Column(name="last_name")
+    @Column(name="l_name")
 	private String lastName;
     @Column
     private String username;

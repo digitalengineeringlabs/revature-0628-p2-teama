@@ -9,8 +9,8 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { SubmitTicketComponent } from './submit-ticket/submit-ticket.component';
 import { LoginComponent } from './login/login.component';
 import { EmployeeComponent } from './employee/employee.component';
-import { AddEmployeeComponent } from './employee/add-employee/add-employee.component';
-import { HeaderComponent } from './employee/header/header.component';
+
+
 import { FooterComponent } from './footer/footer.component';
 
 
@@ -22,8 +22,7 @@ import { FooterComponent } from './footer/footer.component';
     TicketDetailComponent,
     SubmitTicketComponent,
     LoginComponent, 
-    EmployeeComponent, 
-    AddEmployeeComponent, HeaderComponent, FooterComponent
+    EmployeeComponent
     ],
   imports: [
     // declare your imported modules here

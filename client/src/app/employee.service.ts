@@ -8,14 +8,14 @@ import { Employee } from './employees';
 })
 export class EmployeeService {
 
-  private baseUrl = "http://localhost:8080/employees"
+  private baseUrl = "http://localhost:8080/employee"
 
-  constructor(private http: HttpClient) {}
+  constructor(private httpClient: HttpClient) {}
 
     getAllEmployees(): Observable<Employee[]>{
-      return this.http.get<Employee[]>(`${this.baseUrl}`);
+      return this.httpClient.get<Employee[]>(`${this.baseUrl}`);
     }
-
+/*
     public deleteEmployee(employee) {
     return this.httpClient.delete<Employee>(baseUrl + "/"+ employee.empId);
   }
@@ -23,7 +23,7 @@ export class EmployeeService {
   public createEmployee(employee) {
     return this.httpClient.post<Employee>(baseUrl, employee);
   }
-
+*/
 
    
 }

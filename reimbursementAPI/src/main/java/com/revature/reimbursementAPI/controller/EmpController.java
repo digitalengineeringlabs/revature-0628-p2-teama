@@ -23,7 +23,7 @@ public class EmpController {
 	@Autowired
 	private EmployeeManager manager;
 	
-
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping(produces="application/json")
 	public List<Employee> getAllEmployees(){
 			return manager.findAll();
@@ -31,7 +31,7 @@ public class EmpController {
 	}
 	
 	
-
+	@CrossOrigin(origins = "http://localhost:4200")
 	@DeleteMapping(path = { "/{id}"})
 	public Employee delete(@PathVariable("id") int id) {
 			Employee deletedEmp = null;
@@ -50,6 +50,7 @@ public class EmpController {
 //		return manager.findById(id);
 //	}
 //
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping(consumes="application/json", produces="application/json")
 	public Employee create(@RequestBody Employee emp){
 		manager.findAll().add(emp);

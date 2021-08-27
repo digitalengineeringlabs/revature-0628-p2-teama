@@ -9,12 +9,11 @@ import { EmployeeComponent } from './employee/employee.component';
 
 const routes: Routes = [
   // making ticket default url for now we can change it
-  {path: 'login/login', component:LoginComponent},
+  {path: 'login', component:LoginComponent},
   { path: 'submitTicket', component: SubmitTicketComponent },
   {path: 'ticket', component:TicketComponent},
   {path: 'ticket/:ticket_id', component:TicketDetailComponent},
-  {path: 'employee/employee', component:EmployeeComponent},
-   { path:'addemployee', component: AddEmployeeComponent}
+  {path: 'employee', component:EmployeeComponent}
 ];
 
 @NgModule({
