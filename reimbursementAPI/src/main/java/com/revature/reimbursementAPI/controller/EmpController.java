@@ -23,11 +23,10 @@ public class EmpController {
 	@Autowired
 	private EmployeeManager manager;
 	
-	private List<Employee> employees = manager.findAll();
 
 	@GetMapping(produces="application/json")
 	public List<Employee> getAllEmployees(){
-		return manager.findAll();
+			return manager.findAll();
 
 	}
 	
@@ -36,9 +35,9 @@ public class EmpController {
 	@DeleteMapping(path = { "/{id}"})
 	public Employee delete(@PathVariable("id") int id) {
 			Employee deletedEmp = null;
-			for (Employee emp : employees) {
+			for (Employee emp : manager.findAll()) {
 				if (emp.getEmployee_id().equals(id)) {
-					employees.remove(emp);
+					manager.findAll().remove(emp);
 					deletedEmp = emp;
 					break;
 				}
@@ -53,8 +52,8 @@ public class EmpController {
 //
 	@PostMapping(consumes="application/json", produces="application/json")
 	public Employee create(@RequestBody Employee emp){
-		employees.add(emp);
-		System.out.println(employees);
+		manager.findAll().add(emp);
+		System.out.println(manager.findAll());
 		return emp;
 	}
 
