@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+#custom-body {
+    background-color: #222831;
+
+    
+}
+
+#custom-body h1 {
+        color: #EEEEEE;
+}
+
+nav a {
+    color: #EEEEEE;
+}
+
+#custom-body a {
+    color: #00ADB5;
+}
+
+h3 {
+    background-color: #00ADB5;
+    margin: 0;
+}
+
+.btn-primary {
+    background-color: #00ADB5;
+}
+
+td {
+    color: #393E46;
+}
